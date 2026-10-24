@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#170d12">
+<title>Dante Moretti — Dark Romance</title>
+<style>
+:root{--bg:#100b0f;--panel:#1b1118;--panel2:#24151e;--wine:#7c233e;--rose:#d98b9f;--text:#f8edf1;--muted:#c4aeb7;--line:#492936}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#351725 0,#100b0f 52%);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+header{padding:22px 18px 14px;text-align:center;border-bottom:1px solid var(--line);background:#100b0fd9;position:sticky;top:0;z-index:2;backdrop-filter:blur(10px)}
+.eyebrow{color:var(--rose);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700}.brand{font-family:Georgia,serif;font-size:30px;letter-spacing:.03em;margin:2px 0}.sub{font-size:12px;color:var(--muted)}
+main{max-width:760px;margin:auto;padding:18px 14px 26px}.hero{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center;background:linear-gradient(135deg,#2b1722,#170f15);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:14px}
+.portrait{height:125px;border-radius:12px;background:linear-gradient(145deg,#4d2736,#100b0f);display:grid;place-items:center;font-size:48px;border:1px solid #684050}.hero h2{font:24px Georgia,serif;margin:0}.hero p{margin:5px 0;color:var(--muted);font-size:13px}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.tag{border:1px solid #754153;color:#f0c6d2;border-radius:99px;padding:3px 8px;font-size:11px}
+.notice{font-size:12px;color:var(--muted);padding:10px 12px;background:#1a1117;border-radius:10px;margin-bottom:12px;border:1px solid #38232d}
+.chat{height:min(48vh,430px);min-height:280px;overflow:auto;padding:12px;background:#130d12;border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:88%;padding:11px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}.dante{align-self:flex-start;background:#291923;border:1px solid #513040;border-bottom-left-radius:4px}.you{align-self:flex-end;background:#64243a;border-bottom-right-radius:4px}.who{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#e4a9bb;margin-bottom:3px;font-weight:700}
+.composer{display:flex;gap:8px;margin-top:10px}.composer textarea{resize:vertical;min-height:48px;max-height:120px;flex:1;background:#1c1219;color:var(--text);border:1px solid #573143;border-radius:12px;padding:12px;font:inherit}.btn{background:linear-gradient(135deg,#8e2c4b,#5e1c34);border:1px solid #a94c69;color:white;border-radius:12px;padding:11px 15px;font-weight:700;cursor:pointer}.btn:active{transform:scale(.98)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}.secondary{background:#21151d;border:1px solid #583344;color:#f1d9e1;border-radius:10px;padding:8px 11px;cursor:pointer;font-size:12px}
+details{background:#1b1118;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-top:12px}summary{cursor:pointer;font-weight:700;color:#f1c4d1}label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}input,select{width:100%;background:#100b0f;color:var(--text);border:1px solid #573143;border-radius:9px;padding:10px;font:inherit}.small{font-size:12px;color:var(--muted)}footer{text-align:center;color:#927985;font-size:11px;padding:15px}
+@media(max-width:430px){.hero{grid-template-columns:82px 1fr;padding:11px}.portrait{height:108px;font-size:38px}.brand{font-size:26px}.composer .btn{padding:10px}.msg{max-width:94%}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">Uma história original</div><div class="brand">DANTE MORETTI</div><div class="sub">DARK ROMANCE · MÁFIA ITALIANA</div></header>
+<main>
+<section class="hero">
+<div class="portrait" aria-label="Ícone de rosa">🥀</div>
+<div><h2>O homem que nunca perde o controle…</h2><p>38 anos · Chefe da família Moretti · Roma, Itália</p><p>Frio com o mundo. Intenso quando deixa alguém se aproximar.</p><div class="tags"><span class="tag">Ciumento</span><span class="tag">Possessivo</span><span class="tag">Protetor</span><span class="tag">Segredos</span></div></div>
+</section>
+<div class="notice">Protótipo gratuito: as conversas são salvas automaticamente neste navegador e podem ser baixadas. As respostas ainda são pré-programadas; esta página não está conectada a uma IA de respostas livres.</div>
+<section class="chat" id="chat" aria-live="polite">
+<div class="msg dante"><div class="who">Dante</div>Você está atrasada. <em>Ele ergue os olhos do relógio, a expressão impossível de decifrar.</em> Espero que tenha uma boa explicação… e que esse sorriso não seja por causa de outro homem.</div>
+</section>
+<form class="composer" id="form"><textarea id="message" rows="1" placeholder="Escreva para Dante…" aria-label="Sua mensagem"></textarea><button class="btn" type="submit">Enviar</button></form>
+<div class="toolbar"><button class="secondary" id="jealous">Provocar ciúmes</button><button class="secondary" id="romance">Momento romântico</button><button class="secondary" id="secret">Revelar um segredo</button><button class="secondary" id="restart">Recomeçar história</button><button class="secondary" id="exportChat">Baixar conversa</button><button class="secondary" id="clearChat">Apagar conversa salva</button></div>
+<div class="notice" id="saveStatus" role="status">As conversas serão salvas neste navegador automaticamente. Use “Baixar conversa” para guardar uma cópia.</div>
+<details><summary>Personalizar o personagem</summary>
+<label for="nickname">Como Dante chama você?</label><input id="nickname" placeholder="Ex.: amore, bella, meu amor">
+<label for="tone">Tom da história</label><select id="tone"><option value="intenso">Intenso e ciumento</option><option value="terno">Protetor e carinhoso</option><option value="misterioso">Frio e misterioso</option><option value="provocador">Provocador e sedutor</option></select>
+<p class="small">As escolhas alteram as respostas deste protótipo no seu navegador.</p><button class="btn" id="save" type="button">Salvar preferências</button>
+</details>
+<footer>Ficção interativa · Personagens adultos · Não representa uma pessoa real</footer>
+</main>
+<script>
+const chat=document.getElementById('chat'), form=document.getElementById('form'), input=document.getElementById('message');
+const STORAGE_KEY='danteMorettiConversationV1', PREFS_KEY='danteMorettiPrefsV1';
+let prefs={nickname:'',tone:'intenso'};
+function add(text,who='dante',save=true){
+ const m=document.createElement('div');m.className='msg '+(who==='you'?'you':'dante');
+ if(who!=='you'){const label=document.createElement('div');label.className='who';label.textContent='Dante';m.appendChild(label)}
+ const body=document.createElement('div');body.textContent=text;m.appendChild(body);chat.appendChild(m);chat.scrollTop=chat.scrollHeight;
+ if(save) saveConversation();
+}
+function saveConversation(){
+ try {
+  const messages=[...chat.querySelectorAll('.msg')].map(m=>({
+   who:m.classList.contains('you')?'you':'dante',
+   text:[...m.children].map(c=>c.textContent).join('\n').trim()
+  }));
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(messages));
+  document.getElementById('saveStatus').textContent='Conversa salva automaticamente neste navegador.';
+ } catch(e) {
+  document.getElementById('saveStatus').textContent='Não foi possível salvar automaticamente neste navegador. Baixe uma cópia da conversa.';
+ }
+}
+function loadConversation(){
+ try {
+  const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
+  if(Array.isArray(saved)&&saved.length){
+   chat.innerHTML='';
+   saved.forEach(m=>add(m.text,m.who,false));
+   document.getElementById('saveStatus').textContent='Conversa anterior restaurada deste navegador.';
+  }
+  const savedPrefs=JSON.parse(localStorage.getItem(PREFS_KEY)||'null');
+  if(savedPrefs){prefs=savedPrefs;document.getElementById('nickname').value=prefs.nickname||'';document.getElementById('tone').value=prefs.tone||'intenso';}
+ } catch(e) {}
+}
+function reply(text){
+ const t=text.toLowerCase(), n=prefs.nickname?prefs.nickname+', ':'';
+ let r;
+ if(/outro|homem|cara|ciúme|ciumes|ciumento/.test(t)) r='O maxilar de Dante se contrai por um instante. “Não gosto de imaginar alguém tentando conquistar sua atenção.” Ele se aproxima, mas deixa espaço para você escolher ficar. “Olhe para mim e me diga o que realmente aconteceu.”';
+ else if(/amo|amor|beijo|saudade|carinho/.test(t)) r='A expressão dele perde a dureza por um breve instante. “Você não faz ideia do quanto é difícil manter a distância quando tudo o que quero é ficar aqui.” Ele oferece a mão, esperando que você decida se aceita.';
+ else if(/segredo|verdade|esconder|passado/.test(t)) r='Dante olha para a janela antes de responder. “Há coisas no meu passado que podem colocar esta família em perigo. Mas você merece a verdade… só preciso saber se está pronta para ouvi-la.”';
+ else if(/oi|olá|ola|cheguei/.test(t)) r='“Finalmente.” Dante fecha a pasta sobre a mesa e ergue uma sobrancelha. “Venha, sente-se comigo. Quero ouvir como foi seu dia — e não aceite ‘foi normal’ como resposta.”';
+ else if(prefs.tone==='terno') r='Dante suaviza a voz. “Sente-se um pouco, amore. Você não precisa enfrentar tudo sozinha. Quer me contar o que está passando pela sua cabeça?”';
+ else if(prefs.tone==='misterioso') r='Dante gira lentamente o anel no dedo. “Sua pergunta é mais perigosa do que parece. Talvez eu responda… quando tiver certeza de que está me contando tudo também.”';
+ else if(prefs.tone==='provocador') r='Um sorriso discreto surge no rosto de Dante. “Você faz isso de propósito, não faz? Faz uma pergunta inocente e espera para ver se eu perco a compostura. Cuidado, bella. Posso começar a fazer o mesmo.”';
+ else r='Dante apoia os braços na mesa e presta atenção em você. “Continue. Estou ouvindo cada palavra.” A voz dele é baixa, firme, e há curiosidade por trás da expressão séria.';
+ if(n) r=r.replace(/“/g,'“'+n);
+ setTimeout(()=>add(r),250);
+}
+form.addEventListener('submit',e=>{e.preventDefault();const text=input.value.trim();if(!text)return;add(text,'you');input.value='';reply(text)});
+document.getElementById('jealous').onclick=()=>add('“Um homem deixou você sorrindo para o celular. Devo me preocupar ou vai me contar quem é?”');
+document.getElementById('romance').onclick=()=>add('“Fique mais um pouco.” Dante tira o próprio casaco e o coloca perto de você. “Roma pode esperar esta noite.”');
+document.getElementById('secret').onclick=()=>add('“A reunião de hoje não era sobre negócios. Alguém da minha própria família está tentando me derrubar — e seu nome apareceu nos documentos.”');
+document.getElementById('restart').onclick=()=>{
+ if(!confirm('Começar uma nova conversa? A conversa atual continuará salva até você apagá-la ou baixar uma cópia.'))return;
+ chat.innerHTML='';add('Você entra no escritório de Dante, em Roma. Ele fecha a porta, deixa o telefone de lado e olha para você. “Agora que estamos a sós… vai me contar como foi seu dia?”');
+};
+document.getElementById('save').onclick=()=>{
+ prefs.nickname=document.getElementById('nickname').value.trim();prefs.tone=document.getElementById('tone').value;
+ try{localStorage.setItem(PREFS_KEY,JSON.stringify(prefs));}catch(e){}
+ add('Preferências atualizadas. “Vou tentar lembrar do jeito que você gosta das nossas conversas”, diz Dante.');
+};
+document.getElementById('exportChat').onclick=()=>{
+ const messages=[...chat.querySelectorAll('.msg')].map(m=>({
+  personagem:m.classList.contains('you')?'Você':'Dante',
+  texto:[...m.children].map(c=>c.textContent).join('\n').trim()
+ }));
+ const blob=new Blob([JSON.stringify({titulo:'Dante Moretti — Conversa',exportadoEm:new Date().toISOString(),mensagens:messages},null,2)],{type:'application/json'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='conversa-dante-moretti.json';a.click();URL.revokeObjectURL(url);
+};
+document.getElementById('clearChat').onclick=()=>{
+ if(!confirm('Tem certeza de que deseja apagar a conversa salva neste navegador? Baixe uma cópia antes, se quiser guardá-la.'))return;
+ localStorage.removeItem(STORAGE_KEY);chat.innerHTML='';
+ add('Você entra no escritório de Dante, em Roma. Ele fecha a porta, deixa o telefone de lado e olha para você. “Agora que estamos a sós… vai me contar como foi seu dia?”');
+ document.getElementById('saveStatus').textContent='Nova conversa iniciada.';
+};
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit()}});
+loadConversation();
+</script>
+</body></html>
